@@ -1,0 +1,8 @@
+__pycache__/
+.DS_Store
+.coverage
+init.sh
+migrations/
+.pytest_cache
+travis_sak.json
+app.yaml
