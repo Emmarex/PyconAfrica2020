@@ -4,7 +4,7 @@ from django.urls import path, include
 
 urlpatterns = [
     path('', include('apps.store.urls')),
-    path('pycon_base_admin/', admin.site.urls),
+    path('pycon_base_admin/', admin.site.urls)
 ]
 
 if settings.DEBUG:

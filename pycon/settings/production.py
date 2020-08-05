@@ -2,6 +2,8 @@ import os
 
 from .defaults import *
 
+from google.oauth2 import service_account
+
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
 from sentry_sdk.integrations.rq import RqIntegration
@@ -50,6 +52,12 @@ DATABASES = {
         'HOST' : os.getenv('DB_HOST'),
         'PORT': os.getenv('DB_PORT'),
         'CONN_MAX_AGE' : 60
+        # 'OPTIONS': {
+        #     'sslmode': 'verify-ca',
+        #     'sslrootcert': 'server-ca.pem',
+        #     'sslkey': 'client-key.pem',
+        #     'sslcert': 'client-cert.pem'
+        # }
     }
 }
 
@@ -101,8 +109,40 @@ SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 SESSION_CACHE_ALIAS = "default"
 
+FILE_UPLOAD_MAX_MEMORY_SIZE = 10000000
+
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file('travis_sak.json')
+
+GS_CACHE_CONTROL = 'max-age=86400'
+
+GS_BUCKET_NAME = "pycon-demo"
+
+GS_DEFAULT_ACL = "publicRead"
+
+STATIC_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
+
+EMAIL_HOST = 'mail.host.com'
+
+EMAIL_HOST_USER = 'hi@email.com'
+
+EMAIL_HOST_PASSWORD = "password_goes_here"
+
+EMAIL_PORT = 587
+
+EMAIL_USE_TLS = True
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
+
+EMAIL_REPLY_TO = "hi@email.com"
+
 sentry_sdk.init(
-    dsn="https://5749e2f07a8741fc90a757d0d79cf420@o397021.ingest.sentry.io/5251175",
-    release="PRODUCTION_APP_SENTRY_LABEL",
+    dsn="https://45aea208c5f14ce0a2b6ee1313adc91a@o283136.ingest.sentry.io/5378914",
+    release="PyconAfrica2020",
     integrations=[DjangoIntegration(), RqIntegration(), RedisIntegration()]
 )

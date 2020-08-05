@@ -6,3 +6,5 @@ migrations/
 .pytest_cache
 travis_sak.json
 app.yaml
+static/admin
+static/debug_toolbar

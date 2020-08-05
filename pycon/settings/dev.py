@@ -81,3 +81,11 @@ TEMPLATES = [
 SESSION_ENGINE = "django.contrib.sessions.backends.cache"
 
 SESSION_CACHE_ALIAS = "default"
+
+STATIC_URL = '/static/'
+
+STATIC_ROOT = 'static'
+
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static")
+# ]

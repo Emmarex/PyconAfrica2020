@@ -9,3 +9,5 @@ django-csp==3.6
 pytest==6.0.1
 pytest-django==3.9.0
 pytest-cov==2.10.0
+google_auth==1.20.0
+google_cloud_storage==1.30.0
