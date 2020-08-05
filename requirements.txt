@@ -2,6 +2,7 @@ Django==3.0.8
 django-debug-toolbar==2.2
 psycopg2-binary==2.8.5
 sentry-sdk==0.16.2
+Hiredis==1.1.0
 django-redis==4.12.1
 django-rq==2.3.2
 gunicorn==20.0.4

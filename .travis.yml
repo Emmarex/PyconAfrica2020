@@ -1,6 +1,9 @@
 language: python
 python:
   - '3.7'
+before_install:
+  - openssl aes-256-cbc -K $encrypted_8f35c3602305_key -iv $encrypted_8f35c3602305_iv
+    -in travis_sak.json.enc -out travis_sak.json -d
 install:
   - pip install -r requirements.txt
 script:
@@ -8,8 +11,6 @@ script:
 before_deploy:
   - openssl aes-256-cbc -K $encrypted_0cf0bb82cc50_key -iv $encrypted_0cf0bb82cc50_iv
     -in app.yaml.enc -out app.yaml -d
-  - openssl aes-256-cbc -K $encrypted_8f35c3602305_key -iv $encrypted_8f35c3602305_iv
-    -in travis_sak.json.enc -out travis_sak.json -d
 deploy:
   skip_cleanup: true
   provider: gae
