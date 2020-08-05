@@ -5,13 +5,14 @@ install:
   - pip install -r requirements.txt
 script:
   - pytest
-  - echo $TRAVIS_BUILD_DIR
 before_deploy:
-  - openssl aes-256-cbc -K $encrypted_8f35c3602305_key -iv $encrypted_8f35c3602305_iv -in travis_sak.json.enc -out travis_sak.json -d
-  - openssl aes-256-cbc -K $encrypted_0cf0bb82cc50_key -iv $encrypted_0cf0bb82cc50_iv -in app.yaml.enc -out pycon.yaml -d
+  - openssl aes-256-cbc -K $encrypted_0cf0bb82cc50_key -iv $encrypted_0cf0bb82cc50_iv
+    -in app.yaml.enc -out app.yaml -d
+  - openssl aes-256-cbc -K $encrypted_8f35c3602305_key -iv $encrypted_8f35c3602305_iv
+    -in travis_sak.json.enc -out travis_sak.json -d
 deploy:
   skip_cleanup: true
   provider: gae
   keyfile: travis_sak.json
-  config:  pycon.yaml
+  config: app.yaml
   project: newagent-8ceeb
