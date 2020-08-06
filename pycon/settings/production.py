@@ -14,7 +14,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    'https://pycon-dot-newagent-8ceeb.uc.r.appspot.com'
+    '.pycon-dot-newagent-8ceeb.uc.r.appspot.com'
 ]
 
 CSRF_COOKIE_SECURE = True
@@ -22,7 +22,7 @@ CSRF_COOKIE_SECURE = True
 SESSION_COOKIE_SECURE = True
 
 CSRF_TRUSTED_ORIGINS = [
-    '',
+    '.pycon-dot-newagent-8ceeb.uc.r.appspot.com'
 ]
 
 SECURE_CONTENT_TYPE_NOSNIFF = True
@@ -41,11 +41,19 @@ SECURE_HSTS_SECONDS = 31536000
 
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
-CSP_DEFAULT_SRC = ("'none'", )
+CSP_DEFAULT_SRC = (
+    "'none'",
+    "https://storage.googleapis.com/pycon-demo/*"
+)
 
-CSP_STYLE_SRC = ("'self'", "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css")
+CSP_STYLE_SRC = (
+    "'self'",
+    "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+)
 
-CSP_SCRIPT_SRC = ("'self'", )
+CSP_SCRIPT_SRC = (
+    "'self'",
+)
 
 CSP_IMG_SRC = ("'self'", )
 
