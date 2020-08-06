@@ -14,7 +14,7 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = False
 
 ALLOWED_HOSTS = [
-    '*'
+    'https://pycon-dot-newagent-8ceeb.uc.r.appspot.com'
 ]
 
 CSRF_COOKIE_SECURE = True
