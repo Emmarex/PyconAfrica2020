@@ -1,0 +1,17 @@
+#!/bin/bash
+
+export DB_HOST='YOUR_DB_HOST'
+
+export DB_NAME='YOUR_DB_NAME'
+
+export DB_USER='YOUR_DB_USER'
+
+export DB_PASSWORD='YOUR_DB_PASSWORD'
+
+export DB_PORT='YOUR_DB_PORT'
+
+export REDIS_URL='redis://h:<REDIS_PASSWORD>@<REDIS_HOST>:<REDIS_PORT>'
+
+export DJANGO_SETTINGS_MODULE='pycon.settings.dev'
+
+export SECRET_KEY='<DESIRED_SECRET_KEY>'
