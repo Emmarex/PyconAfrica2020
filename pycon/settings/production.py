@@ -42,7 +42,7 @@ SECURE_HSTS_SECONDS = 31536000
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 CSP_DEFAULT_SRC = (
-    "'none'",
+    "'self'",
     "https://storage.googleapis.com/pycon-demo/*"
 )
 
