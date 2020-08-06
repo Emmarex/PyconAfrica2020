@@ -18,30 +18,48 @@ ALLOWED_HOSTS = [
 ]
 
 CSRF_COOKIE_SECURE = True
+
 SESSION_COOKIE_SECURE = True
+
 CSRF_TRUSTED_ORIGINS = [
     '',
 ]
 
 SECURE_CONTENT_TYPE_NOSNIFF = True
+
 SECURE_BROWSER_XSS_FILTER = True
+
 X_FRAME_OPTIONS = 'DENY'
 
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+
 SECURE_SSL_REDIRECT = True
+
 SECURE_HSTS_PRELOAD = True
+
 SECURE_HSTS_SECONDS = 31536000
+
 SECURE_HSTS_INCLUDE_SUBDOMAINS = True
 
 CSP_DEFAULT_SRC = ("'none'", )
+
 CSP_STYLE_SRC = ("'self'", "https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css")
+
 CSP_SCRIPT_SRC = ("'self'", )
+
 CSP_IMG_SRC = ("'self'", )
+
 CSP_FONT_SRC = ("'self'", )
+
 CSP_BASE_URI = ("'self'", )
+
 CSP_FRAME_ANCESTORS = ("'self'", )
+
 CSP_FRAME_SRC = ("'self'", )
+
 CSP_FORM_ACTION = ("'self'", )
+
+# if CDN is used, dont forget to add it's base url above
 
 DATABASES = {
     'default': {
@@ -124,6 +142,10 @@ GS_BUCKET_NAME = "pycon-demo"
 GS_DEFAULT_ACL = "publicRead"
 
 STATIC_URL = 'https://storage.googleapis.com/{}/'.format(GS_BUCKET_NAME)
+
+# for CDN
+
+# STATIC_URL = 'http://34.120.242.7/'
 
 EMAIL_HOST = 'mail.host.com'
 
